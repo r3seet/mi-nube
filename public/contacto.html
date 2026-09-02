@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS // Contacto</title>
+    <style>
+        body { background-color: #0b0b0f; color: #f1f1f1; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; }
+        nav { background: rgba(18, 18, 24, 0.9); padding: 20px; display: flex; justify-content: center; gap: 30px; border-bottom: 1px solid #39ff14; position: sticky; top: 0; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        nav a:hover, nav a.active { color: #39ff14; text-shadow: 0 0 10px #39ff14; }
+        .container { padding: 50px 20px; text-align: center; max-width: 500px; margin: 0 auto; }
+        input, textarea { width: 100%; background: #121218; border: 1px solid #2a2a3d; padding: 12px; margin-bottom: 15px; color: #fff; font-family: inherit; }
+        input:focus, textarea:focus { border-color: #39ff14; outline: none; box-shadow: 0 0 10px rgba(57, 255, 20, 0.3); }
+        .btn-send { background: #39ff14; color: #0b0b0f; border: none; padding: 12px; font-weight: bold; width: 100%; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+        .btn-send:hover { background: #fff; box-shadow: 0 0 15px #39ff14; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Catálogo</a>
+        <a href="contacto.html" class="active">Contacto</a>
+    </nav>
+
+    <div class="container">
+        <h2>ESTABLECER COMUNICACIÓN</h2>
+        <form onsubmit="event.preventDefault(); alert('Transmisión enviada con éxito.');">
+            <input type="text" placeholder="Identificador / Nombre" required>
+            <input type="email" placeholder="Frecuencia / Correo" required>
+            <textarea rows="4" placeholder="Mensaje cifrado..." required></textarea>
+            <button type="submit" class="btn-send">Transmitir Mensaje</button>
+        </form>
+    </div>
+
+</body>
+</html>

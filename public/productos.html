@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS // Catálogo</title>
+    <style>
+        body { background-color: #0b0b0f; color: #f1f1f1; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; }
+        nav { background: rgba(18, 18, 24, 0.9); padding: 20px; display: flex; justify-content: center; gap: 30px; border-bottom: 1px solid #00f0ff; position: sticky; top: 0; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        nav a:hover, nav a.active { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; }
+        .container { padding: 40px 20px; text-align: center; }
+        .grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
+        .card { background: #121218; border: 1px solid #2a2a3d; border-radius: 6px; width: 280px; padding: 25px; box-shadow: 0 0 15px rgba(0, 240, 255, 0.05); }
+        .card h3 { color: #00f0ff; margin-top: 0; letter-spacing: 1px; }
+        .price { color: #ff2a5f; font-weight: bold; font-size: 1.2rem; margin: 15px 0; }
+        .btn-buy { background: #00f0ff; color: #0b0b0f; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; width: 100%; }
+        .btn-buy:hover { background: #fff; box-shadow: 0 0 15px #00f0ff; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html" class="active">Catálogo</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="container">
+        <h2>TECNOLOGÍA DISPONIBLE</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Visor Ciber-Óptico</h3>
+                <p class="price">0.15 ETH</p>
+                <button class="btn-buy" onclick="alert('Conectando cartera neural...')">Adquirir</button>
+            </div>
+            <div class="card">
+                <h3>Nanocapa Térmica</h3>
+                <p class="price">0.08 ETH</p>
+                <button class="btn-buy" onclick="alert('Conectando cartera neural...')">Adquirir</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
