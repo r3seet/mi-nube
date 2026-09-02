@@ -2,39 +2,140 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- Logo simbólico de NEXUS para la pestaña -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230b0b0f%22/><path d=%22M30 75V25l40 50V25%22 fill=%22none%22 stroke=%22%2300f0ff%22 stroke-width=%2212%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%220,0 100,20 80,100 20,80%22 fill=%22%23ff4655%22/></svg>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS // Contacto</title>
+    <title>NEXUS // RECRUITMENT</title>
     <style>
-        body { background-color: #0b0b0f; color: #f1f1f1; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; }
-        nav { background: rgba(18, 18, 24, 0.9); padding: 20px; display: flex; justify-content: center; gap: 30px; border-bottom: 1px solid #39ff14; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        nav a:hover, nav a.active { color: #39ff14; text-shadow: 0 0 10px #39ff14; }
-        .container { padding: 50px 20px; text-align: center; max-width: 500px; margin: 0 auto; }
-        input, textarea { width: 100%; background: #121218; border: 1px solid #2a2a3d; padding: 12px; margin-bottom: 15px; color: #fff; font-family: inherit; box-sizing: border-box; }
-        input:focus, textarea:focus { border-color: #39ff14; outline: none; box-shadow: 0 0 10px rgba(57, 255, 20, 0.3); }
-        .btn-send { background: #39ff14; color: #0b0b0f; border: none; padding: 12px; font-weight: bold; width: 100%; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .btn-send:hover { background: #fff; box-shadow: 0 0 15px #39ff14; }
+        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Roboto:wght@400;700&display=swap');
+
+        body { 
+            background-color: #0f1923; 
+            color: #ece8e1; 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-image: linear-gradient(rgba(15,25,35,0.9), rgba(15,25,35,0.9)), repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,70,85,0.03) 2px, rgba(255,70,85,0.03) 4px);
+        }
+
+        nav { 
+            background: #111822; 
+            padding: 15px 30px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            border-bottom: 3px solid #ff4655; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+
+        nav a { 
+            color: #ece8e1; 
+            text-decoration: none; 
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase; 
+            transition: 0.2s; 
+        }
+
+        nav a:hover, nav a.active { 
+            color: #ff4655; 
+            text-shadow: 0 0 10px rgba(255,70,85,0.6); 
+        }
+
+        .container { 
+            padding: 50px 20px; 
+            text-align: center; 
+            max-width: 500px; 
+            margin: 0 auto; 
+        }
+
+        h2 { 
+            font-family: 'Teko', sans-serif;
+            font-size: 3rem;
+            color: #ece8e1; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            margin-bottom: 5px;
+        }
+
+        h2 span { color: #ff4655; }
+
+        .form-box {
+            background: #1f2326;
+            border-left: 4px solid #ff4655;
+            padding: 30px;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        input, textarea { 
+            width: 100%; 
+            background: #0f1923; 
+            border: 1px solid #383e45; 
+            padding: 12px; 
+            margin-bottom: 15px; 
+            color: #fff; 
+            font-family: inherit; 
+            box-sizing: border-box; 
+        }
+
+        input:focus, textarea:focus { 
+            border-color: #ff4655; 
+            outline: none; 
+            box-shadow: 0 0 8px rgba(255,70,85,0.4); 
+        }
+
+        .btn-val { 
+            background: #ff4655; 
+            color: #ece8e1; 
+            border: none; 
+            padding: 12px; 
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            width: 100%; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            transition: 0.2s; 
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+        }
+
+        .btn-val:hover { 
+            background: #fa4454; 
+            box-shadow: 0 0 15px #ff4655; 
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="productos.html">Catálogo</a>
-        <a href="contacto.html" class="active">Contacto</a>
+        <a href="index.html">Cuartel General</a>
+        <a href="valorant.html">Meta & Agentes</a>
+        <a href="contacto.html" class="active">Reclutamiento / Clips</a>
     </nav>
 
     <div class="container">
-        <h2>ESTABLECER COMUNICACIÓN</h2>
-        <p style="color: #a0a0c0; font-size: 0.9rem; margin-bottom: 25px;">Envía un canal directo cifrado con el operador central de Nexus.</p>
-        <form onsubmit="event.preventDefault(); alert('¡Transmisión cifrada enviada con éxito! El nodo central procesará tu mensaje.');">
-            <input type="text" placeholder="Identificador / Nombre" required>
-            <input type="email" placeholder="Frecuencia / Correo" required>
-            <textarea rows="4" placeholder="Mensaje cifrado..." required></textarea>
-            <button type="submit" class="btn-send">Transmitir Mensaje</button>
-        </form>
+        <h2>CENTRO DE <span>RECLUTAMIENTO</span></h2>
+        <p style="color: #8393a7; text-transform: uppercase; font-size: 0.85rem;">Postúlate para unirte a equipos de la comunidad o envía tus mejores jugadas.</p>
+        
+        <div class="form-box">
+            <form onsubmit="event.preventDefault(); alert('[TRANSMISIÓN EXITOSA] Tu solicitud ha sido enviada al cuartel central de Nexus.');">
+                <label style="font-size: 0.8rem; color: #ff4655; font-weight: bold; text-transform: uppercase;">Riot ID + Tag</label>
+                <input type="text" placeholder="Ej. Player#EUW" required style="margin-top: 5px;">
+                
+                <label style="font-size: 0.8rem; color: #ff4655; font-weight: bold; text-transform: uppercase;">Enlace de Clip o Discord</label>
+                <input type="url" placeholder="https://..." required style="margin-top: 5px;">
+                
+                <label style="font-size: 0.8rem; color: #ff4655; font-weight: bold; text-transform: uppercase;">Mensaje Táctico</label>
+                <textarea rows="4" placeholder="Busco dueto para subir a Immortal..." required style="margin-top: 5px;"></textarea>
+                
+                <button type="submit" class="btn-val">Enviar Solicitud</button>
+            </form>
+        </div>
     </div>
 
 </body>

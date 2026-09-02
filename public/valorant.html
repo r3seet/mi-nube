@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%220,0 100,20 80,100 20,80%22 fill=%22%23ff4655%22/></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS // AGENTS PROTOCOL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Roboto:wght@400;700&display=swap');
+
+        body { 
+            background-color: #0f1923; 
+            color: #ece8e1; 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-image: linear-gradient(rgba(15,25,35,0.9), rgba(15,25,35,0.9)), repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,70,85,0.03) 2px, rgba(255,70,85,0.03) 4px);
+        }
+
+        nav { 
+            background: #111822; 
+            padding: 15px 30px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            border-bottom: 3px solid #ff4655; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+
+        nav a { 
+            color: #ece8e1; 
+            text-decoration: none; 
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase; 
+            transition: 0.2s; 
+        }
+
+        nav a:hover, nav a.active { 
+            color: #ff4655; 
+            text-shadow: 0 0 10px rgba(255,70,85,0.6); 
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            text-align: center; 
+        }
+
+        h2 { 
+            font-family: 'Teko', sans-serif;
+            font-size: 3rem;
+            color: #ece8e1; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            margin-bottom: 5px;
+        }
+
+        h2 span { color: #ff4655; }
+
+        .grid-agents { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            flex-wrap: wrap; 
+            margin-top: 30px; 
+        }
+
+        .agent-card { 
+            background: #1f2326; 
+            border-top: 3px solid #ff4655;
+            border-radius: 0; 
+            width: 230px; 
+            padding: 25px; 
+            text-align: left; 
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+        }
+
+        .agent-card h3 { 
+            font-family: 'Teko', sans-serif;
+            font-size: 2rem;
+            color: #fff; 
+            margin: 5px 0 10px 0; 
+            letter-spacing: 1px;
+        }
+
+        .role { 
+            font-size: 0.8rem; 
+            color: #ff4655; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            display: block; 
+        }
+
+        .btn-val { 
+            background: transparent; 
+            color: #ece8e1; 
+            border: 1px solid #ff4655; 
+            padding: 10px; 
+            width: 100%; 
+            cursor: pointer; 
+            font-family: 'Teko', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            text-transform: uppercase; 
+            margin-top: 15px; 
+            transition: 0.2s; 
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+        }
+
+        .btn-val:hover { 
+            background: #ff4655; 
+            color: #fff; 
+            box-shadow: 0 0 12px #ff4655; 
+        }
+
+        .counter-likes { 
+            margin-top: 10px; 
+            font-size: 0.85rem; 
+            color: #8393a7; 
+            text-align: center; 
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Cuartel General</a>
+        <a href="valorant.html" class="active">Meta & Agentes</a>
+        <a href="contacto.html">Reclutamiento / Clips</a>
+    </nav>
+
+    <div class="container">
+        <h2>REGISTRO DE <span>AGENTES</span></h2>
+        <p style="color: #8393a7; text-transform: uppercase; font-size: 0.9rem;">Soporta y respalda a tus mains en la tier list global de Nexus.</p>
+
+        <div class="grid-agents">
+            <!-- Agente 1 -->
+            <div class="agent-card">
+                <span class="role">Controlador</span>
+                <h3>Omen</h3>
+                <p style="font-size: 0.85rem; color: #8393a7;">Sombra táctica, control de visión global y engaños en el sitio.</p>
+                <button class="btn-val" onclick="darLike('omen')">Votar / Main</button>
+                <span class="counter-likes" id="omen-likes">Apoyos: 142</span>
+            </div>
+
+            <!-- Agente 2 -->
+            <div class="agent-card">
+                <span class="role">Iniciador</span>
+                <h3>Sova</h3>
+                <p style="font-size: 0.85rem; color: #8393a7;">Reconocimiento balístico y control total de información del mapa.</p>
+                <button class="btn-val" onclick="darLike('sova')">Votar / Main</button>
+                <span class="counter-likes" id="sova-likes">Apoyos: 98</span>
+            </div>
+
+            <!-- Agente 3 -->
+            <div class="agent-card">
+                <span class="role">Centinela</span>
+                <h3>Cypher</h3>
+                <p style="font-size: 0.85rem; color: #8393a7;">Vigilancia constante, trampas de cable y bloqueo defensivo.</p>
+                <button class="btn-val" onclick="darLike('cypher')">Votar / Main</button>
+                <span class="counter-likes" id="cypher-likes">Apoyos: 125</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let likes = { omen: 142, sova: 98, cypher: 125 };
+        function darLike(agente) {
+            likes[agente]++;
+            document.getElementById(agente + '-likes').innerText = `Apoyos: ${likes[agente]}`;
+            alert(`[REGISTRO] Apoyo sumado correctamente al agente.`);
+        }
+    </script>
+</body>
+</html>
