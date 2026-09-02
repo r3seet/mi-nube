@@ -6,15 +6,29 @@
     <title>NEXUS // Inicio</title>
     <style>
         body { background-color: #0b0b0f; color: #f1f1f1; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; }
-        nav { background: rgba(18, 18, 24, 0.9); padding: 20px; display: flex; justify-content: center; gap: 30px; border-bottom: 1px solid #ff2a5f; position: sticky; top: 0; z-index: 100; }
+        nav { background: rgba(18, 18, 24, 0.9); padding: 20px; display: flex; justify-content: center; gap: 30px; border-bottom: 1px solid #ff2a5f; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); }
         nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         nav a:hover, nav a.active { color: #ff2a5f; text-shadow: 0 0 10px #ff2a5f; }
-        .hero { text-align: center; padding: 100px 20px; }
-        .hero h1 { font-size: 4rem; color: #fff; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
+        .hero { text-align: center; padding: 80px 20px 40px 20px; }
+        .hero h1 { font-size: 3.5rem; color: #fff; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
         .hero h1 span { color: #00f0ff; text-shadow: 0 0 15px #00f0ff; }
-        .hero p { color: #a0a0c0; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto; }
-        .btn { display: inline-block; background: transparent; color: #ff2a5f; border: 2px solid #ff2a5f; padding: 12px 30px; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 0 15px rgba(255, 42, 95, 0.4); transition: 0.3s; }
-        .btn:hover { background: #ff2a5f; color: #000; box-shadow: 0 0 25px #ff2a5f; }
+        .hero p { color: #a0a0c0; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px auto; }
+        
+        /* Zona interactiva de la comunidad */
+        .community-box { max-width: 600px; margin: 30px auto; background: #121218; border: 1px solid #ff2a5f; padding: 25px; border-radius: 8px; box-shadow: 0 0 20px rgba(255, 42, 95, 0.15); text-align: left; }
+        .community-box h3 { color: #ff2a5f; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+        .poll-option { background: #1a1a24; border: 1px solid #2a2a3d; padding: 12px; margin: 10px 0; cursor: pointer; transition: 0.3s; display: flex; justify-content: space-between; }
+        .poll-option:hover { border-color: #00f0ff; box-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+        
+        /* Muro de mensajes en vivo */
+        .chat-section { max-width: 600px; margin: 30px auto 60px auto; background: #121218; border: 1px solid #00f0ff; padding: 25px; border-radius: 8px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.15); text-align: left; }
+        .chat-section h3 { color: #00f0ff; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+        input, textarea { width: 100%; background: #0b0b0f; border: 1px solid #2a2a3d; padding: 10px; margin-bottom: 10px; color: #fff; font-family: inherit; box-sizing: border-box; }
+        input:focus, textarea:focus { border-color: #00f0ff; outline: none; }
+        .btn-cyber { background: transparent; color: #00f0ff; border: 1px solid #00f0ff; padding: 10px 20px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; width: 100%; transition: 0.3s; }
+        .btn-cyber:hover { background: #00f0ff; color: #0b0b0f; box-shadow: 0 0 15px #00f0ff; }
+        .message-wall { margin-top: 15px; max-height: 200px; overflow-y: auto; border-top: 1px dashed #2a2a3d; padding-top: 10px; }
+        .msg-item { background: #1a1a24; padding: 8px 12px; margin-bottom: 8px; border-left: 3px solid #ff2a5f; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -26,10 +40,57 @@
     </nav>
 
     <div class="hero">
-        <h1>Bienvenido a <span>Nexus</span></h1>
-        <p>Plataforma cibernética de próxima generación. Explora el futuro del diseño digital y la tecnología descentralizada.</p>
-        <a href="productos.html" class="btn">Explorar Catálogo</a>
+        <h1>Portal <span>Nexus</span></h1>
+        <p>Centro de operaciones de la comunidad cibernética. Participa, vota y deja tu rastro en la red.</p>
     </div>
 
+    <!-- Encuesta Comunitaria Interactiva -->
+    <div class="community-box">
+        <h3>Encuesta de Neural-Red</h3>
+        <p style="font-size: 0.9rem; color: #a0a0c0; text-align: center;">¿Cuál debería ser el siguiente despliegue tecnológico de Nexus?</p>
+        <div class="poll-option" onclick="votar('Nanocapas de invisibilidad')"><span>Nanocapas de invisibilidad</span><span id="v1">0 votos</span></div>
+        <div class="poll-option" onclick="votar('Implantes de memoria cuántica')"><span>Implantes de memoria cuántica</span><span id="v2">0 votos</span></div>
+        <div class="poll-option" onclick="votar('Drones de escolta personal')"><span>Drones de escolta personal</span><span id="v3">0 votos</span></div>
+    </div>
+
+    <!-- Muro de Mensajes de la Comunidad -->
+    <div class="chat-section">
+        <h3>Muro de Transmisiones (Comunidad)</h3>
+        <input type="text" id="autor" placeholder="Tu Alias / Nickname" required>
+        <textarea id="textoMsg" rows="2" placeholder="Escribe un mensaje para la red..." required></textarea>
+        <button class="btn-cyber" onclick="enviarMensaje()">Transmitir al Muro</button>
+        
+        <div class="message-wall" id="muro">
+            <div class="msg-item"><strong>Sistema:</strong> Red abierta. Deja tu registro comunitario.</div>
+        </div>
+    </div>
+
+    <script>
+        // Sistema de Encuesta
+        let votos = { 'Nanocapas de invisibilidad': 12, 'Implantes de memoria cuántica': 25, 'Drones de escolta personal': 19 };
+        function votar(opcion) {
+            votos[opcion]++;
+            document.getElementById('v1').innerText = votos['Nanocapas de invisibilidad'] + ' votos';
+            document.getElementById('v2').innerText = votos['Implantes de memoria cuántica'] + ' votos';
+            document.getElementById('v3').innerText = votos['Drones de escolta personal'] + ' votos';
+            alert('¡Voto registrado en el núcleo de Nexus!');
+        }
+
+        // Sistema de Muro de Mensajes local
+        function enviarMensaje() {
+            let autor = document.getElementById('autor').value;
+            let texto = document.getElementById('textoMsg').value;
+            if(autor.trim() === '' || texto.trim() === '') {
+                alert('Por favor, rellena tu alias y mensaje.');
+                return;
+            }
+            let muro = document.getElementById('muro');
+            let nuevoMsg = document.createElement('div');
+            nuevoMsg.className = 'msg-item';
+            nuevoMsg.innerHTML = `<strong>${autor}:</strong> ${texto}`;
+            muro.prepend(nuevoMsg);
+            document.getElementById('textoMsg').value = '';
+        }
+    </script>
 </body>
 </html>
