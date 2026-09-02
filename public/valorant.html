@@ -45,7 +45,7 @@
         }
 
         .container { 
-            max-width: 800px; 
+            max-width: 1000px; 
             margin: 40px auto; 
             padding: 0 20px; 
             text-align: center; 
@@ -53,49 +53,91 @@
 
         h2 { 
             font-family: 'Teko', sans-serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #ece8e1; 
             text-transform: uppercase; 
             letter-spacing: 3px; 
             margin-bottom: 5px;
         }
 
-        h2 span { color: #ff4655; }
+        h2 span { color: #ff4655; text-shadow: 0 0 15px rgba(255,70,85,0.6); }
 
         .grid-agents { 
             display: flex; 
             justify-content: center; 
-            gap: 25px; 
+            gap: 20px; 
             flex-wrap: wrap; 
-            margin-top: 30px; 
+            margin-top: 35px; 
         }
 
+        /* Tarjeta con efectos visuales estilo Valorant */
         .agent-card { 
             background: #1f2326; 
             border-top: 3px solid #ff4655;
-            border-radius: 0; 
-            width: 230px; 
-            padding: 25px; 
+            width: 280px; 
             text-align: left; 
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
             box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(255, 70, 85, 0.3);
+            border-color: #fff;
+        }
+
+        /* Contenedor de la imagen con efecto zoom */
+        .img-container {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: #111822;
+            position: relative;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+        }
+
+        .agent-card:hover .img-container img {
+            transform: scale(1.1);
+        }
+
+        .agent-content {
+            padding: 20px;
         }
 
         .agent-card h3 { 
             font-family: 'Teko', sans-serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #fff; 
-            margin: 5px 0 10px 0; 
+            margin: 0 0 5px 0; 
             letter-spacing: 1px;
+            line-height: 1;
         }
 
         .role { 
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             color: #ff4655; 
             font-weight: bold; 
             text-transform: uppercase; 
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             display: block; 
+            margin-bottom: 8px;
+        }
+
+        .agent-desc {
+            font-size: 0.85rem; 
+            color: #8393a7; 
+            margin-bottom: 15px;
+            height: 40px;
         }
 
         .btn-val { 
@@ -109,7 +151,6 @@
             font-size: 1.3rem;
             letter-spacing: 1px;
             text-transform: uppercase; 
-            margin-top: 15px; 
             transition: 0.2s; 
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
         }
@@ -122,7 +163,7 @@
 
         .counter-likes { 
             margin-top: 10px; 
-            font-size: 0.85rem; 
+            font-size: 0.8rem; 
             color: #8393a7; 
             text-align: center; 
             display: block; 
@@ -139,44 +180,102 @@
 
     <div class="container">
         <h2>REGISTRO DE <span>AGENTES</span></h2>
-        <p style="color: #8393a7; text-transform: uppercase; font-size: 0.9rem;">Soporta y respalda a tus mains en la tier list global de Nexus.</p>
+        <p style="color: #8393a7; text-transform: uppercase; font-size: 0.9rem;">Vota y respalda a tus personajes favoritos en la red táctica de Nexus.</p>
 
         <div class="grid-agents">
-            <!-- Agente 1 -->
+            <!-- Jett -->
             <div class="agent-card">
-                <span class="role">Controlador</span>
-                <h3>Omen</h3>
-                <p style="font-size: 0.85rem; color: #8393a7;">Sombra táctica, control de visión global y engaños en el sitio.</p>
-                <button class="btn-val" onclick="darLike('omen')">Votar / Main</button>
-                <span class="counter-likes" id="omen-likes">Apoyos: 142</span>
+                <div class="img-container">
+                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltce2a3169fbc38708/5ebab575cca7d67f789a7f34/V_AGENTS_587x900_Jett.png" alt="Jett">
+                </div>
+                <div class="agent-content">
+                    <span class="role">Duelista</span>
+                    <h3>Jett</h3>
+                    <p class="agent-desc">Agilidad insuperable y ataques relámpago con cuchillos.</p>
+                    <button class="btn-val" onclick="darLike('jett')">Votar / Main</button>
+                    <span class="counter-likes" id="jett-likes">Apoyos: 210</span>
+                </div>
             </div>
 
-            <!-- Agente 2 -->
+            <!-- Omen -->
             <div class="agent-card">
-                <span class="role">Iniciador</span>
-                <h3>Sova</h3>
-                <p style="font-size: 0.85rem; color: #8393a7;">Reconocimiento balístico y control total de información del mapa.</p>
-                <button class="btn-val" onclick="darLike('sova')">Votar / Main</button>
-                <span class="counter-likes" id="sova-likes">Apoyos: 98</span>
+                <div class="img-container">
+                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/blt4944f121fa2cb644/5ebabf731cc9c92d5f818db2/V_AGENTS_587x900_Omen.png" alt="Omen">
+                </div>
+                <div class="agent-content">
+                    <span class="role">Controlador</span>
+                    <h3>Omen</h3>
+                    <p class="agent-desc">Sombra táctica, teleports y control total de visión.</p>
+                    <button class="btn-val" onclick="darLike('omen')">Votar / Main</button>
+                    <span class="counter-likes" id="omen-likes">Apoyos: 142</span>
+                </div>
             </div>
 
-            <!-- Agente 3 -->
+            <!-- Sova -->
             <div class="agent-card">
-                <span class="role">Centinela</span>
-                <h3>Cypher</h3>
-                <p style="font-size: 0.85rem; color: #8393a7;">Vigilancia constante, trampas de cable y bloqueo defensivo.</p>
-                <button class="btn-val" onclick="darLike('cypher')">Votar / Main</button>
-                <span class="counter-likes" id="cypher-likes">Apoyos: 125</span>
+                <div class="img-container">
+                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/blt8a6495be1328cf08/5ebabf828a2a88319f07a627/V_AGENTS_587x900_Sova.png" alt="Sova">
+                </div>
+                <div class="agent-content">
+                    <span class="role">Iniciador</span>
+                    <h3>Sova</h3>
+                    <p class="agent-desc">Rastreo balístico implacable para localizar enemigos.</p>
+                    <button class="btn-val" onclick="darLike('sova')">Votar / Main</button>
+                    <span class="counter-likes" id="sova-likes">Apoyos: 98</span>
+                </div>
             </div>
+
+            <!-- Cypher -->
+            <div class="agent-card">
+                <div class="img-container">
+                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltce797bc624a9a957/5ebabf12e8ab56758d4a6b28/V_AGENTS_587x900_Cypher.png" alt="Cypher">
+                </div>
+                <div class="agent-content">
+                    <span class="role">Centinela</span>
+                    <h3>Cypher</h3>
+                    <p class="agent-desc">Vigilancia permanente con cámaras y cables trampa.</p>
+                    <button class="btn-val" onclick="darLike('cypher')">Votar / Main</button>
+                    <span class="counter-likes" id="cypher-likes">Apoyos: 125</span>
+                </div>
+            </div>
+
+            <!-- Reyna -->
+            <div class="agent-card">
+                <div class="img-container">
+                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltbc3fcac07270387b/5ebabf62cf1b7027d1421715/V_AGENTS_587x900_Reyna.png" alt="Reyna">
+                </div>
+                <div class="agent-content">
+                    <span class="role">Duelista</span>
+                    <h3>Reyna</h3>
+                    <p class="agent-desc">Dominio absoluto en duelos individuales y curación en cadena.</p>
+                    <button class="btn-val" onclick="darLike('reyna')">Votar / Main</button>
+                    <span class="counter-likes" id="reyna-likes">Apoyos: 189</span>
+                </div>
+            </div>
+
+            <!-- Viper -->
+            <div class="agent-card">
+                <div class="img-container">
+                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltdcb2cdb66f2c0cf6/5ebabfb0b767d4323ab5f5f4/V_AGENTS_587x900_Viper.png" alt="Viper">
+                </div>
+                <div class="agent-content">
+                    <span class="role">Controlador</span>
+                    <h3>Viper</h3>
+                    <p class="agent-desc">Emisores químicos tóxicos y control de zonas cerradas.</p>
+                    <button class="btn-val" onclick="darLike('viper')">Votar / Main</button>
+                    <span class="counter-likes" id="viper-likes">Apoyos: 167</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <script>
-        let likes = { omen: 142, sova: 98, cypher: 125 };
+        let likes = { jett: 210, omen: 142, sova: 98, cypher: 125, reyna: 189, viper: 167 };
         function darLike(agente) {
             likes[agente]++;
             document.getElementById(agente + '-likes').innerText = `Apoyos: ${likes[agente]}`;
-            alert(`[REGISTRO] Apoyo sumado correctamente al agente.`);
+            alert(`[REGISTRO] Apoyo sumado correctamente en los servidores de Nexus.`);
         }
     </script>
 </body>
