@@ -2,31 +2,44 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Tienda Virtual</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 20px; background-color: #f4f4f4; }
-        .producto { background: white; padding: 20px; margin: 15px auto; width: 300px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
-        button { background: #28a745; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; }
-        button:hover { background: #218838; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
+        header { background-color: #343a40; color: white; padding: 20px; text-align: center; }
+        .container { display: flex; justify-content: center; gap: 20px; padding: 40px; flex-wrap: wrap; }
+        .producto { background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 250px; padding: 20px; text-align: center; }
+        .producto h3 { margin-top: 0; color: #007bff; }
+        .precio { font-size: 18px; font-weight: bold; color: #28a745; margin: 15px 0; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; width: 100%; }
+        button:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
 
-    <h1>Bienvenido a mi Tienda Virtual</h1>
-    <p>Explora nuestros productos destacados:</p>
+    <header>
+        <h1>Mi Tienda en la Nube</h1>
+        <p>Los mejores productos a un solo clic</p>
+    </header>
 
-    <!-- Producto 1 -->
-    <div class="producto">
-        <h3>Camiseta Exclusiva</h3>
-        <p>Precio: $20.00 USD</p>
-        <button onclick="alert('¡Producto agregado al carrito!')">Comprar</button>
-    </div>
+    <div class="container">
+        <div class="producto">
+            <h3>Camiseta Gamer</h3>
+            <p class="precio">$25.00 USD</p>
+            <button onclick="alert('¡Has comprado la Camiseta Gamer!')">Comprar Ahora</button>
+        </div>
 
-    <!-- Producto 2 -->
-    <div class="producto">
-        <h3>Gorra Casual</h3>
-        <p>Precio: $15.00 USD</p>
-        <button onclick="alert('¡Producto agregado al carrito!')">Comprar</button>
+        <div class="producto">
+            <h3>Gorra Estilo Urbano</h3>
+            <p class="precio">$15.00 USD</p>
+            <button onclick="alert('¡Has comprado la Gorra Urbana!')">Comprar Ahora</button>
+        </div>
+
+        <div class="producto">
+            <h3>Taza de Programador</h3>
+            <p class="precio">$12.00 USD</p>
+            <button onclick="alert('¡Has comprado la Taza de Programador!')">Comprar Ahora</button>
+        </div>
     </div>
 
 </body>
