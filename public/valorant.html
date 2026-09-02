@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- Nuevo logo NEXUS estilo Valorant en la pestaña -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%2210,0 90,0 100,20 100,90 90,100 0,100 0,10%22 fill=%22%230f1923%22 stroke=%22%23ff4655%22 stroke-width=%224%22/><path d=%22M28 75V25l44 50V25%22 fill=%22none%22 stroke=%22%23ff4655%22 stroke-width=%2214%22 stroke-linecap=%22square%22 stroke-linejoin=%22miter%22/></svg>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXUS // AGENTS PROTOCOL</title>
@@ -16,6 +15,12 @@
             margin: 0; 
             padding: 0; 
             background-image: linear-gradient(rgba(15,25,35,0.9), rgba(15,25,35,0.9)), repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,70,85,0.03) 2px, rgba(255,70,85,0.03) 4px);
+            animation: fadeInBody 0.8s ease-out;
+        }
+
+        @keyframes fadeInBody {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         nav { 
@@ -37,12 +42,12 @@
             font-size: 1.5rem;
             letter-spacing: 2px;
             text-transform: uppercase; 
-            transition: 0.2s; 
+            transition: 0.3s; 
         }
 
         nav a:hover, nav a.active { 
             color: #ff4655; 
-            text-shadow: 0 0 10px rgba(255,70,85,0.6); 
+            text-shadow: 0 0 12px rgba(255,70,85,0.8); 
         }
 
         .container { 
@@ -59,9 +64,15 @@
             text-transform: uppercase; 
             letter-spacing: 3px; 
             margin-bottom: 5px;
+            animation: pulseTitle 3s infinite alternate;
         }
 
-        h2 span { color: #ff4655; text-shadow: 0 0 15px rgba(255,70,85,0.6); }
+        @keyframes pulseTitle {
+            0% { text-shadow: 0 0 5px rgba(255,70,85,0.2); }
+            100% { text-shadow: 0 0 20px rgba(255,70,85,0.7); }
+        }
+
+        h2 span { color: #ff4655; }
 
         .grid-agents { 
             display: flex; 
@@ -71,7 +82,7 @@
             margin-top: 35px; 
         }
 
-        /* Tarjeta con estilo Valorant */
+        /* Tarjeta con animación de aparición y efecto hover */
         .agent-card { 
             background: #1f2326; 
             border-top: 3px solid #ff4655;
@@ -79,18 +90,28 @@
             text-align: left; 
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
             box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
             position: relative;
             overflow: hidden;
+            animation: cardEntrance 0.6s ease-out backwards;
+        }
+
+        .agent-card:nth-child(1) { animation-delay: 0.1s; }
+        .agent-card:nth-child(2) { animation-delay: 0.2s; }
+        .agent-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .agent-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(255, 70, 85, 0.4);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(255, 70, 85, 0.4);
             border-color: #fff;
         }
 
-        /* Contenedor de la foto local */
+        /* Contenedor de la foto y efecto de escaneo láser */
         .img-container {
             width: 100%;
             height: 220px;
@@ -103,16 +124,37 @@
             overflow: hidden;
         }
 
+        /* Línea de escaneo estilo Valorant */
+        .img-container::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 70, 85, 0.25), transparent);
+            transition: none;
+        }
+
+        .agent-card:hover .img-container::after {
+            animation: scanLine 1.2s ease-in-out infinite;
+        }
+
+        @keyframes scanLine {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
         .img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: top;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s ease;
         }
 
         .agent-card:hover .img-container img {
-            transform: scale(1.08);
+            transform: scale(1.1);
         }
 
         .agent-content {
@@ -145,6 +187,7 @@
             height: 40px;
         }
 
+        /* Botón animado con efecto táctil */
         .btn-val { 
             background: transparent; 
             color: #ece8e1; 
@@ -156,14 +199,21 @@
             font-size: 1.3rem;
             letter-spacing: 1px;
             text-transform: uppercase; 
-            transition: 0.2s; 
+            transition: all 0.2s ease; 
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-val:hover { 
             background: #ff4655; 
             color: #fff; 
-            box-shadow: 0 0 12px #ff4655; 
+            box-shadow: 0 0 15px rgba(255, 70, 85, 0.8); 
+            transform: scale(1.02);
+        }
+
+        .btn-val:active {
+            transform: scale(0.97);
         }
 
         .counter-likes { 
@@ -172,6 +222,14 @@
             color: #8393a7; 
             text-align: center; 
             display: block; 
+            transition: color 0.3s;
+        }
+
+        /* Clase temporal para animar el contador al sumar */
+        .pulse-counter {
+            color: #ff4655 !important;
+            font-weight: bold;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -235,10 +293,17 @@
 
     <script>
         let likes = { jett: 210, omen: 142, sova: 98 };
+        
         function darLike(agente) {
             likes[agente]++;
-            document.getElementById(agente + '-likes').innerText = `Apoyos: ${likes[agente]}`;
-            alert(`[REGISTRO] Apoyo sumado correctamente en los servidores de Nexus.`);
+            let counterElement = document.getElementById(agente + '-likes');
+            counterElement.innerText = `Apoyos: ${likes[agente]}`;
+            
+            // Animación visual de destello en el contador al sumar el voto
+            counterElement.classList.add('pulse-counter');
+            setTimeout(() => {
+                counterElement.classList.remove('pulse-counter');
+            }, 300);
         }
     </script>
 </body>
