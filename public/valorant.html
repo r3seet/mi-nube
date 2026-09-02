@@ -70,7 +70,7 @@
             margin-top: 35px; 
         }
 
-        /* Tarjeta con efectos visuales estilo Valorant */
+        /* Tarjeta con estilo Valorant */
         .agent-card { 
             background: #1f2326; 
             border-top: 3px solid #ff4655;
@@ -85,17 +85,21 @@
 
         .agent-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(255, 70, 85, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 70, 85, 0.4);
             border-color: #fff;
         }
 
-        /* Contenedor de la imagen con efecto zoom */
+        /* Contenedor de la foto local */
         .img-container {
             width: 100%;
-            height: 180px;
-            overflow: hidden;
-            background: #111822;
+            height: 200px;
+            background: radial-gradient(circle, #1a2332 0%, #0b121a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
+            border-bottom: 1px solid #383e45;
+            overflow: hidden;
         }
 
         .img-container img {
@@ -103,11 +107,11 @@
             height: 100%;
             object-fit: cover;
             object-position: top;
-            transition: transform 0.5s ease;
+            transition: transform 0.4s ease;
         }
 
         .agent-card:hover .img-container img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .agent-content {
@@ -186,7 +190,7 @@
             <!-- Jett -->
             <div class="agent-card">
                 <div class="img-container">
-                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltce2a3169fbc38708/5ebab575cca7d67f789a7f34/V_AGENTS_587x900_Jett.png" alt="Jett">
+                    <img src="img/jett.png" alt="Jett">
                 </div>
                 <div class="agent-content">
                     <span class="role">Duelista</span>
@@ -200,10 +204,10 @@
             <!-- Omen -->
             <div class="agent-card">
                 <div class="img-container">
-                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/blt4944f121fa2cb644/5ebabf731cc9c92d5f818db2/V_AGENTS_587x900_Omen.png" alt="Omen">
+                    <img src="img/omen.png" alt="Omen">
                 </div>
                 <div class="agent-content">
-                    <span class="role">Controlador</span>
+                    <span class="role" style="color: #00d8ff;">Controlador</span>
                     <h3>Omen</h3>
                     <p class="agent-desc">Sombra táctica, teleports y control total de visión.</p>
                     <button class="btn-val" onclick="darLike('omen')">Votar / Main</button>
@@ -214,10 +218,10 @@
             <!-- Sova -->
             <div class="agent-card">
                 <div class="img-container">
-                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/blt8a6495be1328cf08/5ebabf828a2a88319f07a627/V_AGENTS_587x900_Sova.png" alt="Sova">
+                    <img src="img/sova.png" alt="Sova">
                 </div>
                 <div class="agent-content">
-                    <span class="role">Iniciador</span>
+                    <span class="role" style="color: #ffcc00;">Iniciador</span>
                     <h3>Sova</h3>
                     <p class="agent-desc">Rastreo balístico implacable para localizar enemigos.</p>
                     <button class="btn-val" onclick="darLike('sova')">Votar / Main</button>
@@ -228,10 +232,10 @@
             <!-- Cypher -->
             <div class="agent-card">
                 <div class="img-container">
-                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltce797bc624a9a957/5ebabf12e8ab56758d4a6b28/V_AGENTS_587x900_Cypher.png" alt="Cypher">
+                    <img src="img/cypher.png" alt="Cypher">
                 </div>
                 <div class="agent-content">
-                    <span class="role">Centinela</span>
+                    <span class="role" style="color: #00ff66;">Centinela</span>
                     <h3>Cypher</h3>
                     <p class="agent-desc">Vigilancia permanente con cámaras y cables trampa.</p>
                     <button class="btn-val" onclick="darLike('cypher')">Votar / Main</button>
@@ -242,7 +246,7 @@
             <!-- Reyna -->
             <div class="agent-card">
                 <div class="img-container">
-                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltbc3fcac07270387b/5ebabf62cf1b7027d1421715/V_AGENTS_587x900_Reyna.png" alt="Reyna">
+                    <img src="img/reyna.png" alt="Reyna">
                 </div>
                 <div class="agent-content">
                     <span class="role">Duelista</span>
@@ -256,10 +260,10 @@
             <!-- Viper -->
             <div class="agent-card">
                 <div class="img-container">
-                    <img src="https://images.contentstack.io/v3/assets/bltb6530b271fca0b16/bltdcb2cdb66f2c0cf6/5ebabfb0b767d4323ab5f5f4/V_AGENTS_587x900_Viper.png" alt="Viper">
+                    <img src="img/viper.png" alt="Viper">
                 </div>
                 <div class="agent-content">
-                    <span class="role">Controlador</span>
+                    <span class="role" style="color: #00ff66;">Controlador</span>
                     <h3>Viper</h3>
                     <p class="agent-desc">Emisores químicos tóxicos y control de zonas cerradas.</p>
                     <button class="btn-val" onclick="darLike('viper')">Votar / Main</button>
